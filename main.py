@@ -32,7 +32,7 @@ movement_right = [
     pygame.image.load("images/ab_right/angry_birds_left3.png").convert_alpha(),
 ]
 
-
+# Monster
 monster_img = pygame.image.load("images/venonat.png").convert_alpha()
 monster_x = 920
 monster_y = 280
@@ -75,7 +75,7 @@ while running:
                 screen.blit(monster_img, monst)
                 monst.x -= 10
 
-               # если соприкосновение игрока и монстра
+               # contact between player and monster
                 if player_rect.colliderect(monst):
                     print("Game over")
 
@@ -92,7 +92,7 @@ while running:
     elif keys[pygame.K_RIGHT] and player_x < 920:
         player_x += speed_player
 
-        # jump player
+    # jump player
     if not player_jump:
         if keys[pygame.K_SPACE]:
             player_jump = True
@@ -138,7 +138,7 @@ while running:
             running = False
             pygame.quit()
 
-            # добавляем монстра
+         # add monster
         if event.type == monster_timer:
             monster_list.append(monster_img.get_rect(topleft=(920, 300)))
 
